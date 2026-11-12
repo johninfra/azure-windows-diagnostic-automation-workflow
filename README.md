@@ -129,7 +129,7 @@ A persistent path is used because Azure Run Command executes scripts from a temp
 
 ## Execution Evidence
 
-The screenshots below document a successful GitHub Actions run and the corresponding Azure role assignment. Screenshots are redacted to protect account identifiers and unrelated administrative details.
+The screenshots below document the successful GitHub Actions run, the Azure workload identity's RBAC assignment, and the HTML report generated on the Windows VM. Portfolio evidence is redacted to limit exposure of identifying details.
 
 ### GitHub Actions — successful end-to-end diagnostics
 
@@ -142,6 +142,14 @@ The successful **diagnostics** job shows Azure CLI login using OIDC, VM startup,
 ![Azure IAM role assignments showing the GitHub-Windows-Diagnostic-Toolkit service principal with Virtual Machine Contributor at resource-group scope](screenshots/azure-rbac-full-redacted.png)
 
 The Azure IAM view shows the dedicated **GitHub-Windows-Diagnostic-Toolkit** service principal assigned **Virtual Machine Contributor** inherited from the resource group. This supports the documented resource-scoped authorization design. The successful OIDC login above separately demonstrates federated authentication.
+
+### Windows VM — generated diagnostic report
+
+![Redacted HTML diagnostic report generated on the Azure Windows VM, showing operating system, CPU, memory, disk, network configuration, and connectivity checks](screenshots/lab27-diagnostic-report-redacted.png)
+
+The screenshot shows the **Windows IT Diagnostic Report** created on the Azure VM after the remote PowerShell run, including system summary, CPU, memory, disk capacity, network configuration, and connectivity test results. This is evidence of the workflow's diagnostic output in addition to the successful automation logs. The screenshot captures a portion of the report; the toolkit also collects further Windows and security diagnostics.
+
+> **Adding screenshots:** Create a `screenshots/` folder in the repository root, then upload `github-actions-success-redacted.png`, `azure-rbac-full-redacted.png`, and `lab27-diagnostic-report-redacted.png`. GitHub will render all three images automatically when the files are committed.
 
 ## Result
 
