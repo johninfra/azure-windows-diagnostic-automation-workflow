@@ -149,8 +149,6 @@ The Azure IAM view shows the dedicated **GitHub-Windows-Diagnostic-Toolkit** ser
 
 The screenshot shows the **Windows IT Diagnostic Report** created on the Azure VM after the remote PowerShell run, including system summary, CPU, memory, disk capacity, network configuration, and connectivity test results. This is evidence of the workflow's diagnostic output in addition to the successful automation logs. The screenshot captures a portion of the report; the toolkit also collects further Windows and security diagnostics.
 
-> **Adding screenshots:** Create a `screenshots/` folder in the repository root, then upload `github-actions-success-redacted.png`, `azure-rbac-full-redacted.png`, and `lab27-diagnostic-report-redacted.png`. GitHub will render all three images automatically when the files are committed.
-
 ## Result
 
 The project successfully proved this complete chain:
