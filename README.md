@@ -143,8 +143,6 @@ The successful **diagnostics** job shows Azure CLI login using OIDC, VM startup,
 
 The Azure IAM view shows the dedicated **GitHub-Windows-Diagnostic-Toolkit** service principal assigned **Virtual Machine Contributor** inherited from the resource group. This supports the documented resource-scoped authorization design. The successful OIDC login above separately demonstrates federated authentication.
 
-> **Screenshot setup:** Create a `screenshots/` folder at the repository root and upload the two redacted PNG files using **exactly** these names: `github-actions-success-redacted.png` and `azure-rbac-full-redacted.png`. The images will display automatically once both files are present. Until then, GitHub will show broken image placeholders.
-
 ## Result
 
 The project successfully proved this complete chain:
