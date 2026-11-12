@@ -127,6 +127,24 @@ A persistent path is used because Azure Run Command executes scripts from a temp
 - automatic VM deallocation
 - RDP used only for lab validation; Bastion/JIT/private access would be preferable for production administration
 
+## Execution Evidence
+
+The screenshots below document a successful GitHub Actions run and the corresponding Azure role assignment. Screenshots are redacted to protect account identifiers and unrelated administrative details.
+
+### GitHub Actions — successful end-to-end diagnostics
+
+![GitHub Actions workflow showing successful OIDC authentication, Windows VM startup, PowerShell diagnostics, report generation, and VM deallocation](screenshots/github-actions-success-redacted.png)
+
+The successful **diagnostics** job shows Azure CLI login using OIDC, VM startup, execution through Azure VM Run Command, an HTML diagnostic report saved to `C:\\DiagnosticReports`, and VM deallocation. This demonstrates the complete orchestration sequence, not merely a proposed architecture.
+
+### Azure RBAC — workload identity authorization
+
+![Azure IAM role assignments showing the GitHub-Windows-Diagnostic-Toolkit service principal with Virtual Machine Contributor at resource-group scope](screenshots/azure-rbac-full-redacted.png)
+
+The Azure IAM view shows the dedicated **GitHub-Windows-Diagnostic-Toolkit** service principal assigned **Virtual Machine Contributor** inherited from the resource group. This supports the documented resource-scoped authorization design. The successful OIDC login above separately demonstrates federated authentication.
+
+> **Screenshot setup:** Create a `screenshots/` folder at the repository root and upload the two redacted PNG files using **exactly** these names: `github-actions-success-redacted.png` and `azure-rbac-full-redacted.png`. The images will display automatically once both files are present. Until then, GitHub will show broken image placeholders.
+
 ## Result
 
 The project successfully proved this complete chain:
